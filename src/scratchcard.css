@@ -1,9 +1,9 @@
-#ggk {
+#card {
     width: 600px;
     height: 200px;
     position: relative;
 }
-#ggk .jp {
+#card .result {
     width: 600px;
     height: 200px;
     position: absolute;
@@ -14,7 +14,7 @@
     font-size: 50px;
     line-height: 200px;
 }
-#ggk #canvas {
+#card #canvas {
     width: 600px;
     height: 200px;
     position: absolute;

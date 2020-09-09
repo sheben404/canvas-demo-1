@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刮刮卡</title>
+    <link rel="stylesheet" href="scratchcard.css"></link>
+</head>
+<body>
+    <div id="card">
+        <div class="result">谢谢惠顾</div>
+        <canvas id="canvas" width="600" height="200"></canvas>
+    </div>
+    <script>
+        let canvas = document.querySelector("#canvas")
+        let cardDOM = document.querySelector("#card")
+        let resultDOM = document.querySelector(".result")
+        let ctx = canvas.getContext('2d')
+        ctx.fillStyle = "darkgray"
+        ctx.fillRect(0,0,600,200)
+        ctx.font = "20px 微软雅黑"
+        ctx.fillStyle = "#fff"
+        ctx.fillText("刮刮卡",260,100)
+        let isDraw = false
+
+        canvas.onmousedown = function () {
+            isDraw = true
+        }
+        canvas.onmousemove = function(e){
+            if(isDraw){
+                let x = e.pageX - cardDOM.offsetLeft
+                let y = e.pageY -cardDOM.offsetTop
+                ctx.globalCompositeOperation = "destination-out"
+                ctx.beginPath()
+                ctx.arc(x,y,20,0,2*Math.PI)
+                ctx.fill()
+                ctx.closePath()
+            }
+        }
+
+        canvas.onmouseup = function(){
+            isDraw = false
+        }
+        resultDOM.onselectstart = function(){
+            return false
+        }
+
+        let arr = [{ content: "一等奖：IphoneXs", p: 0.1 }, { content: "二等奖：Ipad", p: 0.2 }, { content: "三等奖：棒棒糖", p: 0.3 }]
+        let randomNum = Math.random()
+        if(randomNum<arr[0].p){
+            resultDOM.innerHTML = arr[0].content
+        }else if(randomNum < arr[1].p+arr[0].p){
+            resultDOM.innerHTML = arr[1].content
+        }else if(randomNum < arr[2].p + arr[1].p + arr[0].p){
+            resultDOM.innerHTML = arr[2].content
+        }
+    </script>
+</body>
+</html>
