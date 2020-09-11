@@ -11,7 +11,7 @@
       <button class="pen line active">线</button>
       <button class="pen rect">矩形</button>
       <button class="pen arc">圆形</button>
-      <button class="pen era">点击画板清空</button>
+      <button class="pen era">橡皮擦</button>
       <button class="width thin"></button>
       <button class="width normal"></button>
       <button class="width thick"></button>
@@ -78,7 +78,14 @@
           ctx.closePath()
         },
         eraFn:function(e){
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          let x = e.pageX - canvas.offsetLeft
+          let y = e.pageY - canvas.offsetTop
+          ctx.lineTo(x, y)
+          ctx.strokeStyle = "#fff"
+          ctx.lineWidth = canvasPen.lineWidth
+          ctx.lineCap = "round"
+          ctx.lineJoin = "round"
+          ctx.stroke()
         }
       }
 
