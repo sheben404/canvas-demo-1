@@ -72,7 +72,7 @@
           }
           ctx.beginPath()
           ctx.lineWidth = canvasPen.lineWidth
-          ctx.arc( x, y, Math.abs(e.clientX- canvasPen.beginX+ y - canvasPen.beginY), 0,2 * Math.PI)
+          ctx.arc( x, y, Math.abs(e.clientX - canvasPen.beginX + y - canvasPen.beginY), 0,2 * Math.PI)
           ctx.strokeStyle = canvasPen.color
           ctx.stroke()
           ctx.closePath()
@@ -145,30 +145,24 @@
 
       canvas.onmousedown = function(e){
         canvasPen.isDraw = true
-        if(canvasPen.type==="rect"){
-          let x = e.pageX - canvas.offsetLeft
-          let y = e.pageY - canvas.offsetTop
+        let x = e.pageX - canvas.offsetLeft
+        let y = e.pageY - canvas.offsetTop
+        if(canvasPen.type==="rect"){      
           canvasPen.beginX = x
           canvasPen.beginY = y
         }
         if (canvasPen.type === "arc") {
-          let x = e.pageX - canvas.offsetLeft
-          let y = e.pageY - canvas.offsetTop
           canvasPen.beginX = x
           canvasPen.beginY = y
         }
 
         if (canvasPen.type === "line") {
-          let x = e.pageX - canvas.offsetLeft
-          let y = e.pageY - canvas.offsetTop
           canvasPen.beginX = x
           canvasPen.beginY = y
           ctx.beginPath()
           ctx.moveTo(x, y)
         }
         if (canvasPen.type === "era") {
-          let x = e.pageX - canvas.offsetLeft
-          let y = e.pageY - canvas.offsetTop
           canvasPen.beginX = x
           canvasPen.beginY = y
           ctx.beginPath()
