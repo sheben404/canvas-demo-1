@@ -21,3 +21,28 @@
     left: 0;
     top: 0;
 }
+/*@media (max-width: 600px) {*/
+/*    #card {*/
+/*        width: 300px;*/
+/*        height: 100px;*/
+/*        position: relative;*/
+/*    }*/
+/*    #card .result {*/
+/*        width: 300px;*/
+/*        height: 100px;*/
+/*        position: absolute;*/
+/*        left: 0;*/
+/*        top: 0;*/
+/*        text-align: center;*/
+/*        color: deeppink;*/
+/*        font-size: 25px;*/
+/*        line-height: 100px;*/
+/*    }*/
+/*    #card #canvas {*/
+/*        width: 300px;*/
+/*        height: 100px;*/
+/*        position: absolute;*/
+/*        left: 0;*/
+/*        top: 0;*/
+/*    }*/
+/*}*/

@@ -51,8 +51,8 @@
             }
             canvas.ontouchmove = function(e){
                 if(isDraw){
-                    let x = e.targetTouches[0].pageX - cardDOM.offsetLeft
-                    let y = e.targetTouches[0].pageY -cardDOM.offsetTop
+                    let x = e.touches[0].pageX - cardDOM.offsetLeft
+                    let y = e.touches[0].pageY -cardDOM.offsetTop
                     ctx.globalCompositeOperation = "destination-out"
                     ctx.beginPath()
                     ctx.arc(x,y,20,0,2*Math.PI)
