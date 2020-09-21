@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>刮刮卡</title>
-    <link rel="stylesheet" href="scratchcard.css"></link>
+    <link rel="stylesheet" href="scratchcard.css"/>
 </head>
 <body>
     <div id="card">
@@ -69,11 +69,7 @@
             }
         }
 
-
-
-
-
-        let arr = [{ content: "一等奖：IphoneXs", p: 0.1 }, { content: "二等奖：Ipad", p: 0.2 }, { content: "三等奖：棒棒糖", p: 0.3 }]
+        let arr = [{ content: "一等奖：录用我吧！", p: 0.1 }, { content: "二等奖：Ipad", p: 0.2 }, { content: "三等奖：棒棒糖", p: 0.3 }]
         let randomNum = Math.random()
         if(randomNum<arr[0].p){
             resultDOM.innerHTML = arr[0].content
