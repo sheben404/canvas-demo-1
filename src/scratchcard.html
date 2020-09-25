@@ -10,12 +10,20 @@
     <div id="card">
         <div class="result">谢谢惠顾</div>
         <canvas id="canvas" width="600px" height="200" ></canvas>
+        <canvas id="popWords" width="600px" height="200" ></canvas>
     </div>
     <script>
         let canvas = document.querySelector("#canvas")
+        let popWords = document.querySelector("#popWords")
         let cardDOM = document.querySelector("#card")
         let resultDOM = document.querySelector(".result")
         let ctx = canvas.getContext('2d')
+        let pop = popWords.getContext('2d')
+        pop.font = "50px 微软雅黑"
+        pop.shadowBlur = 20
+        pop.shadowColor = "rgba(0,0,0,1)"
+        pop.shadowOffsetX = 10
+        pop.shadowOffsetY = 10
         ctx.fillStyle = "darkgray"
         ctx.fillRect(0,0,600,200)
         ctx.font = "20px 微软雅黑"
@@ -69,7 +77,17 @@
             }
         }
 
-        let arr = [{ content: "一等奖：录用我吧！", p: 0.1 }, { content: "二等奖：Ipad", p: 0.2 }, { content: "三等奖：棒棒糖", p: 0.3 }]
+        let x = 600
+        setInterval(function (){
+            pop.clearRect(0,0,600,200)
+            x-=3
+            if(x<-100){
+                x = 600
+            }
+            pop.fillText("祝你好运喔",x,100)
+        },25)
+
+        let arr = [{ content: "一等奖：录用我哦！", p: 0.1 }, { content: "二等奖：Ipad", p: 0.2 }, { content: "三等奖：棒棒糖", p: 0.3 }]
         let randomNum = Math.random()
         if(randomNum<arr[0].p){
             resultDOM.innerHTML = arr[0].content
