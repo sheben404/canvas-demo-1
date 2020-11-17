@@ -12,7 +12,7 @@
       <button class="pen rect">矩形</button>
       <button class="pen arc">圆形</button>
       <button class="pen era">橡皮擦</button>
-      <button class="width thin"></button>
+      <button class="width thin active"></button>
       <button class="width normal"></button>
       <button class="width thick"></button>
       <button><input type="color" name="color" id="color"></button>
@@ -26,9 +26,7 @@
       let ctx = canvas.getContext('2d')
 
       canvas.setAttribute("width",canvas.offsetWidth)
-      console.log(canvas.offsetWidth)
       canvas.setAttribute("height",canvas.offsetHeight)
-      console.log(canvas.offsetHeight)
       let canvasPen = {
         type:"line",
         isDraw:false,
